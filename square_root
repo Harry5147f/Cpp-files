@@ -1,0 +1,44 @@
+#include <iostream>
+std::string check(double num){
+int i;
+for(i=1;i<=num;i++){
+if(i*i==num){
+std::string toPrint=std::to_string(i);
+return toPrint;}}
+if(num<=0){
+return "Number cannot be negative";}
+else {
+return "";
+}}
+
+double f(double x,double num){
+return (x*x)-num;
+}
+int main(){
+double x1,x2,num,f1,f2;
+int i, ch1,ch2;
+std::cout<<"Enter the number: ";
+std::cin>>num;
+if(!(check(num)=="")){
+std::cout<<check(num);
+return 0;
+}
+for(i=0;;i++){
+f1=f(i,num);
+f2=f(i+1,num);
+
+if(f1*f2<0){
+break;
+}}
+x1=i;
+while(true){
+x2=x1-f(x1,num)/(2*x1);
+ch1=x1*100000000;
+ch2=x2*100000000;
+if(ch1==ch2){
+break;
+}
+x1=x2;}
+std::cout<<x1;
+return 0;
+}
